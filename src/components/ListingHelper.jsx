@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { publishToWebhook } from "../services/marketplace.js";
 
 export default function ListingHelper(){
   const [file,setFile]=useState(null);
@@ -24,6 +25,37 @@ export default function ListingHelper(){
     setTradePrice(String(suggestedTrade));
   };
 
+  const buildItem = ()=>({
+    id: crypto.randomUUID(),
+    title,
+    category: cat,
+    price: Number(price||0),
+    tradePrice: Number(tradePrice||0),
+    desc,
+    imageName: file?.name || "",
+    city: "",
+    createdAt: Date.now(),
+    published: true,
+    source: "local",
+  });
+
+  const saveLocal = ()=>{
+    const item = buildItem();
+    const current = JSON.parse(localStorage.getItem("listings")||"[]");
+    localStorage.setItem("listings", JSON.stringify([item, ...current]));
+    alert("Saved locally. Visible in Classifieds.");
+  };
+
+  const publish = async ()=>{
+    const item = buildItem();
+    const current = JSON.parse(localStorage.getItem("listings")||"[]");
+    localStorage.setItem("listings", JSON.stringify([item, ...current]));
+    const res = await publishToWebhook(item);
+    alert(res.ok
+      ? "Published (webhook accepted)."
+      : "Saved locally and visible in Classifieds. External broadcast is Phase 2.");
+  };
+
   return (
     <div className="card">
       <div className="title">Quick Add: Image → Listing (Demo)</div>
@@ -39,8 +71,8 @@ export default function ListingHelper(){
       <label style={{marginTop:8}}>Description</label>
       <textarea rows={5} value={desc} onChange={e=>setDesc(e.target.value)} />
       <div style={{marginTop:8, display:"flex", gap:8}}>
-        <button className="btn" disabled>Save to My Listings</button>
-        <button className="btn" disabled>Publish to App Marketplace</button>
+        <button className="btn" onClick={saveLocal}>Save to My Listings</button>
+        <button className="btn" onClick={publish}>Publish to Marketplace</button>
       </div>
     </div>
   );

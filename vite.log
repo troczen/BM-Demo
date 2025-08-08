@@ -1,9 +1,9 @@
 
 > barter-mastery-demo@0.1.0 dev
-> vite --host 0.0.0.0 --port 5180
+> vite --host 0.0.0.0 --port 5181
 
 
-  VITE v5.4.19  ready in 132 ms
+  VITE v5.4.19  ready in 139 ms
 
-  ➜  Local:   http://localhost:5180/
-  ➜  Network: http://172.30.0.2:5180/
+  ➜  Local:   http://localhost:5181/
+  ➜  Network: http://172.30.0.2:5181/

@@ -1,21 +1,23 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Dashboard from "./pages/Dashboard.jsx";
 
-const tabStyle = ({ isActive }) => ({
-  padding: "10px 14px",
-  textDecoration: "none",
-  borderBottom: isActive ? "2px solid #111" : "2px solid transparent"
+const link = ({ isActive }) => ({
+  display:"block", padding:"10px 12px", borderRadius:8,
+  background: isActive ? "#0b1222" : "transparent",
+  border: "1px solid #1f2937", marginBottom:8, textDecoration:"none", color:"#e5e7eb"
 });
 
-export default function App() {
+export default function App(){
   return (
-    <div>
-      <nav style={{ display: "flex", gap: 16, borderBottom: "1px solid #eee" }}>
-        <NavLink to="/" style={tabStyle} end>Deals</NavLink>
-        <NavLink to="/inventory" style={tabStyle}>Inventory</NavLink>
-        <NavLink to="/lab" style={tabStyle}>Arbitrage Lab</NavLink>
-      </nav>
-      <main style={{ padding: 16 }}>
-        <Outlet />
+    <div style={{display:"grid", gridTemplateColumns:"240px 1fr", minHeight:"100vh"}}>
+      <aside style={{padding:16, borderRight:"1px solid #1f2937", background:"#0f172a"}}>
+        <div style={{fontWeight:700, marginBottom:12}}>Barter OS</div>
+        <NavLink to="/" style={link} end>Dashboard</NavLink>
+        {/* Future: add direct links to subsections with #anchors */}
+        <div className="muted" style={{marginTop:16, fontSize:12}}>Tip: Use the Dashboard cards. Tabs are no longer needed.</div>
+      </aside>
+      <main>
+        <Dashboard />
       </main>
     </div>
   );

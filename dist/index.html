@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barter Mastery Demo</title>
+    <style>
+      :root{--bg:#0b0f1a;--card:#111828;--muted:#94a3b8;--accent:#60a5fa;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;}
+      html,body,#root{height:100%}
+      body{margin:0;background:linear-gradient(180deg,#0b0f1a,#0a0f1f);color:#e5e7eb;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+      .shell{max-width:1200px;margin:0 auto;padding:20px 16px}
+      .grid{display:grid;gap:16px}
+      .cards{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+      .card{background:linear-gradient(180deg,#0f172a,#0b1222);border:1px solid #1f2937;border-radius:14px;padding:16px;box-shadow:0 4px 20px rgba(0,0,0,.35)}
+      .title{font-weight:700;font-size:22px;margin:0 0 8px}
+      .sub{color:var(--muted);margin:0 0 12px}
+      .btn{background:linear-gradient(180deg,#2563eb,#1d4ed8);border:none;color:white;padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:600}
+      .btn:disabled{opacity:.6;cursor:not-allowed}
+      input,select,textarea{background:#0b1222;border:1px solid #1f2937;color:#e5e7eb;padding:10px;border-radius:10px;width:100%}
+      label{font-size:12px;color:#9ca3af}
+      .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+      .muted{color:#9ca3af}
+      .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#0b1222;border:1px solid #1f2937;margin-right:6px}
+      .ok{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+      .mono{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; font-size: 12px;}
+      .kbd{border:1px solid #1f2937;border-bottom-width:2px;padding:2px 6px;border-radius:6px;background:#0b1222}
+      a{color:#93c5fd}
+    </style>
+    <script type="module" crossorigin src="/assets/index-C8DOdwJI.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

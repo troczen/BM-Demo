@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
 import Deals from './pages/Deals.jsx'
 import Inventory from './pages/Inventory.jsx'
+import Lab from './pages/Lab.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/" element={<App />} />
       <Route path="/deals" element={<Deals />} />
       <Route path="/inventory" element={<Inventory />} />
+      <Route path="/lab" element={<Lab />} />
     </Routes>
   </BrowserRouter>
 )
